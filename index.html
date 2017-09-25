@@ -1,0 +1,397 @@
+<!-- step 11 is missing-->
+<!--________________________ STEP 1:________________________ -->
+<!-- HTML boilerplate -->
+
+<!DOCTYPE html>  
+<html>
+<head>
+	<title>Concetration Game</title>
+	<style>
+
+/*________________________ STEP 4:________________________*/
+/*Game-square styles*/
+
+		.game-square {
+			box-sizing: border-box;
+			border: 1px solid #000;
+			width: 100px;
+			height: 100px;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.game-square > div { /*_4_refers to the child of the window node (drawer)*/
+			width: 100%;
+			height: 200%; /*_4_we don't see it but it has the double size of its parent*/
+			position: absolute;
+			top: 0;
+
+/*________________________ STEP 14:________________________*/
+/*motion*/
+
+			transition: 400ms;/*_14_ added transition*/
+		}
+
+		.game-square > div > div { /*_4_refers to the children of the drawer node (default and color)*/
+			height: 50%;
+		}
+
+		.game-square > div > div:first-child {/*_4_refers to the first child of the drawer node (default)*/
+			background-color: gray;
+		}
+
+		.game-square > div > div:second-child {
+			background-color: red;
+		}
+
+		.flip > div {
+			top: -100%; /*_4_adding this class to the game-square div will slide the drawer dive up the height of its parent(game-square)*/
+		}
+
+/*________________________ STEP 7:________________________*/
+/*Arrange squares in a grid*/
+
+		#game {
+			width:400px;
+			height: 400px;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			border: 1px solid red;
+		}
+
+/*________________________ STEP 5:________________________*/
+/*Create matching styles*/
+
+		.square-0 {
+  		background-color: aqua;
+		}
+
+		.square-1 {
+		  background-color: bisque;
+		}
+
+		.square-2 {
+		  background-color: blue;
+		}
+
+		.square-3 {
+		  background-color: blueviolet;
+		}
+
+		.square-4 {
+		  background-color: brown;
+		}
+
+		.square-5 {
+		  background-color: cadetblue;
+		}
+
+		.square-6 {
+		  background-color: chartreuse;
+		}
+
+		.square-7 {
+		  background-color: chocolate;
+		}
+
+		.square-8 {
+		  background-color: coral;
+		}
+
+		.square-9 {
+		  background-color: cornflowerblue;
+		}
+	</style>
+</head>
+<body>
+
+<!--________________________ STEP 2:________________________ -->
+<!-- Basic structure, divs container and game -->
+
+	
+	<div class="container"><!-- _2_ div that acts as a wrapper for the game boxes and the reset button -->
+		<div id="game"><!-- _2_ this div contains only the game board -->
+
+<!--________________________ STEP 3:________________________ -->
+<!-- Game square structure and mechanics -->
+
+			<div class="game-square" id="window"><!-- _3_ each of the folowing divs contains one box (16 in total) -->
+				<div id="drawer"><!-- _3_ when the drawer div is all the way down we see the grey (default) box through the "window" -->
+					<div id="default" class="square-#"></div>
+					<div id="color"></div><!-- _3_ when the user clicks on the box the drawer is pulled up and the color box apears -->
+				</div>
+			</div>
+
+<!--________________________ STEP 6:________________________ -->
+<!-- Create 15 more Game Squares -->
+
+			<div class="game-square" id="window">
+				<div id="drawer">
+					<div id="default"></div>
+					<div id="color"></div>
+				</div>
+			</div>
+
+			<div class="game-square" id="window">
+				<div id="drawer">
+					<div id="default"></div>
+					<div id="color"></div>
+				</div>
+			</div>
+
+			<div class="game-square" id="window">
+				<div id="drawer">
+					<div id="default"></div>
+					<div id="color"></div>
+				</div>
+			</div>
+
+			<div class="game-square" id="window">
+				<div id="drawer">
+					<div id="default"></div>
+					<div id="color"></div>
+				</div>
+			</div>
+
+			<div class="game-square" id="window">
+				<div id="drawer">
+					<div id="default"></div>
+					<div id="color"></div>
+				</div>
+			</div>
+
+			<div class="game-square" id="window">
+				<div id="drawer">
+					<div id="default"></div>
+					<div id="color"></div>
+				</div>
+			</div>
+
+			<div class="game-square" id="window">
+				<div id="drawer">
+					<div id="default"></div>
+					<div id="color"></div>
+				</div>
+			</div>
+
+			<div class="game-square" id="window">
+				<div id="drawer">
+					<div id="default"></div>
+					<div id="color"></div>
+				</div>
+			</div>
+
+			<div class="game-square" id="window">
+				<div id="drawer">
+					<div id="default"></div>
+					<div id="color"></div>
+				</div>
+			</div>
+
+			<div class="game-square" id="window">
+				<div id="drawer">
+					<div id="default"></div>
+					<div id="color"></div>
+				</div>
+			</div>
+
+			<div class="game-square" id="window">
+				<div id="drawer">
+					<div id="default"></div>
+					<div id="color"></div>
+				</div>
+			</div>
+
+			<div class="game-square" id="window">
+				<div id="drawer">
+					<div id="default"></div>
+					<div id="color"></div>
+				</div>
+			</div>
+
+			<div class="game-square" id="window">
+				<div id="drawer">
+					<div id="default"></div>
+					<div id="color"></div>
+				</div>
+			</div>
+
+			<div class="game-square" id="window">
+				<div id="drawer">
+					<div id="default"></div>
+					<div id="color"></div>
+				</div>
+			</div>
+
+			<div class="game-square" id="window">
+				<div id="drawer">
+					<div id="default"></div>
+					<div id="color"></div>
+				</div>
+			</div>
+
+		</div>
+
+<!--________________________ STEP 8:________________________ -->
+<!-- add reset button -->
+
+		<button id="reset-button">Reset</button>
+
+	</div>
+
+	<script>
+
+// ________________________ STEP 9:________________________
+// get references to DOM elements with JS
+
+		var colors = []; // _9_ array that holds the class names of the different colors
+		for ( var i=0; i < 10; i++ ){
+			colors.push('square-'+i)
+		}
+
+// ________________________ STEP 10:________________________
+//create game objects
+		
+		//GameSquare object (constructor???)
+		function GameSquare(el,color){
+			this.el= el;
+			this.isOpen=false;
+			this.isLocked=false;
+			this.el.addEventListener("click", this, false)
+			this.setColor(color); //_12_ set the color
+		}
+
+// ________________________ STEP 12:________________________
+//add methods to game square
+
+		//_12_ handleEvent
+		//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype
+		GameSquare.prototype.handleEvent = function(e) {
+			switch (e.type) {
+				case "click":
+					if(this.isOpen || this.isLocked){
+						return;
+					}
+					this.isOpen = true;
+					this.el.classList.add('flip');
+					checkGame(this); // _16_ check the game here
+			}
+		}
+		//_12_ reset
+		GameSquare.prototype.reset = function(){
+			this.isOpen = false;
+			this.isLocked = false;
+			this.el.classList.remove('flip');
+		}
+
+		//_12_ lock
+		GameSquare.prototype.lock = function(){
+			this.isLocked = true;
+			this.isOpen = true;
+		}
+
+		//_12_ setColor
+		GameSquare.prototype.setColor = function(color){
+			this.el.children[0].children[1].classList.remove(this.color);
+			this.color=color;
+			this.el.children[0].children[1].classList.add(color);
+		}
+
+//________________________ STEP 15:________________________//
+//assign random colors
+
+		function random(n){
+			return Math.floor(Math.random()*n);
+		}//_15_ returns a number from 0 to n-1
+
+		//_15_ pick colors
+		function getSomeColors(){
+			var colorscopy = colors.slice(); //_15_ makes a copy of colors array
+			//_15_ Array.slice() returns a copy when it has not params
+			var randomColors =[];//_15_ define new empty array
+			for (var i=0; i < 8; i++){//_15_ loop 8 times
+				var index = random(colorscopy.length);//_15_ with each loop get a random index from 0 to length. This is the index of the color we want from the copy of colors
+				randomColors.push(colorscopy.splice(index, 1)[0]); //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+				//_15_ Using Array.splice() we remove the item at that index and add to randomArray with Array.push().
+
+				}
+				return randomColors.concat(randomColors.slice()); //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+		}
+
+// ________________________ STEP 13:________________________
+//set up the game
+
+		//_13_define array to hold game objects
+		var GameSquares = [];
+		//_13_define a function to set up the game
+		function setupGame (){
+			var array = document.getElementsByClassName('game-square');
+			var randomColors =getSomeColors(); // _15_ Get an array of 8 random color pairs
+			for (var i = 0; i < array.length; i++) {
+				var index =random(randomColors.length); //_15_ Get a random index
+				var color = randomColors.splice(index, 1)[0]; //_15_ Get the color at that index
+
+				// Get the color at that index, and remove it from the array. Using Array.splice(index, deleteCount) in this way deletes the items begining at index. It returns an array! We need the item not an array so we get the first item with [0].
+
+				//_15_ Use that color to initialize the GameSquare
+				GameSquares.push(new GameSquare (array[i], color));
+			}
+		}
+		setupGame();
+
+// ________________________ STEP 16:________________________
+// game logic
+
+		var firstSquare =null; //_16_ add a var to keep track of the first square you click. This can be null when begin when no square has been clicked.
+
+		function checkGame (GameSquare) {
+			if (firstSquare === null){
+				firstSquare = GameSquare;
+				return;
+			}
+
+			if (firstSquare.color === GameSquare.color) {
+				firstSquare.lock();
+				GameSquare.lock();
+			} else {
+				var a = firstSquare;
+				var b = GameSquare;
+				setTimeout(function(){
+					a.reset();
+					b.reset();
+					firstSquare =null;
+				},400);
+			}
+			firstSquare=null;
+		}
+
+// ________________________ STEP 17:________________________
+// Reset
+
+		// _17_ assigns random colors. Get some random colors, then loop through all of the game squares, for each game pull a random color out of the random colors and set the color of the game square.
+		function randomizeColors() { 
+			var randomColors = getSomeColors();
+			GameSquares.forEach(function(GameSquare){
+				var color =randomColors.splice(random(randomColors.length), 1)[0];
+				GameSquare.setColor(color);
+			});
+		}
+
+		//_17_ clear the game
+		function clearGame(){
+			GameSquares.forEach(function(GameSquare){
+				GameSquare.reset();
+			});
+			setTimeout(function(){
+				randomizeColors();
+			}, 500);
+		}
+
+		var resetButton = document.getElementById('reset-button'); //_9_ variable that holds the node with the id reset-buttton
+
+		resetButton.addEventListener("click", clearGame());
+
+	</script>
+</body>
+</html>
