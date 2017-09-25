@@ -8,16 +8,24 @@
 	<title>Concetration Game</title>
 	<style>
 
+		.container {
+			width: 520px;
+			margin: auto;
+			
+		}
+
 /*________________________ STEP 4:________________________*/
 /*Game-square styles*/
 
 		.game-square {
 			box-sizing: border-box;
 			border: 1px solid #000;
-			width: 100px;
-			height: 100px;
+			width: 120px;
+			height: 120px;
 			position: relative;
 			overflow: hidden;
+			margin: 5px 5px 0px 5px;
+			border-radius: 25px;
 		}
 
 		.game-square > div { /*_4_refers to the child of the window node (drawer)*/
@@ -37,7 +45,7 @@
 		}
 
 		.game-square > div > div:first-child {/*_4_refers to the first child of the drawer node (default)*/
-			background-color: gray;
+			background-color: #7D5BA6;
 		}
 
 		.game-square > div > div:second-child {
@@ -52,12 +60,15 @@
 /*Arrange squares in a grid*/
 
 		#game {
-			width:400px;
-			height: 400px;
+			
+			width:520px;
+			height: 520px;
 			display: flex;
 			flex-direction: row;
 			flex-wrap: wrap;
-			border: 1px solid red;
+			border-radius: 25px;
+			background-color: #F1E8B8;
+			border: 2px solid  black;
 		}
 
 /*________________________ STEP 5:________________________*/
@@ -101,6 +112,11 @@
 
 		.square-9 {
 		  background-color: cornflowerblue;
+		}
+
+		#reset-button{
+			margin-top: 20px;
+			border-radius: 25px;
 		}
 	</style>
 </head>
