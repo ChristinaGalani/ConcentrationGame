@@ -236,7 +236,8 @@
 <!--________________________ STEP 8:________________________ -->
 <!-- add reset button -->
 
-		<button id="reset-button">Reset</button>
+		<button id="reset-button" >Reset</button>
+<!-- type:"button" onclick="clearGame()" -->
 
 	</div>
 
@@ -267,7 +268,7 @@
 
 		//_12_ handleEvent
 		//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype
-		GameSquare.prototype.handleEvent = function(e) {
+		GameSquare.prototype.handleEvent = function(e) { //e stands for event
 			switch (e.type) {
 				case "click":
 					if(this.isOpen || this.isLocked){
@@ -323,7 +324,7 @@
 //set up the game
 
 		//_13_define array to hold game objects
-		var GameSquares = [];
+		var gameSquares = [];
 		//_13_define a function to set up the game
 		function setupGame (){
 			var array = document.getElementsByClassName('game-square');
@@ -335,7 +336,7 @@
 				// Get the color at that index, and remove it from the array. Using Array.splice(index, deleteCount) in this way deletes the items begining at index. It returns an array! We need the item not an array so we get the first item with [0].
 
 				//_15_ Use that color to initialize the GameSquare
-				GameSquares.push(new GameSquare (array[i], color));
+				gameSquares.push(new GameSquare (array[i], color));
 			}
 		}
 		setupGame();
@@ -345,18 +346,18 @@
 
 		var firstSquare =null; //_16_ add a var to keep track of the first square you click. This can be null when begin when no square has been clicked.
 
-		function checkGame (GameSquare) {
+		function checkGame (gameSquare) {
 			if (firstSquare === null){
-				firstSquare = GameSquare;
+				firstSquare = gameSquare;
 				return;
 			}
 
-			if (firstSquare.color === GameSquare.color) {
+			if (firstSquare.color === gameSquare.color) {
 				firstSquare.lock();
-				GameSquare.lock();
+				gameSquare.lock();
 			} else {
 				var a = firstSquare;
-				var b = GameSquare;
+				var b = gameSquare;
 				setTimeout(function(){
 					a.reset();
 					b.reset();
@@ -372,25 +373,26 @@
 		// _17_ assigns random colors. Get some random colors, then loop through all of the game squares, for each game pull a random color out of the random colors and set the color of the game square.
 		function randomizeColors() { 
 			var randomColors = getSomeColors();
-			GameSquares.forEach(function(GameSquare){
+			gameSquares.forEach(function(gameSquare){
 				var color =randomColors.splice(random(randomColors.length), 1)[0];
-				GameSquare.setColor(color);
+				gameSquare.setColor(color);
 			});
 		}
 
 		//_17_ clear the game
 		function clearGame(){
-			GameSquares.forEach(function(GameSquare){
-				GameSquare.reset();
+			gameSquares.forEach(function(gameSquare){
+				gameSquare.reset();
 			});
 			setTimeout(function(){
 				randomizeColors();
 			}, 500);
+
 		}
 
 		var resetButton = document.getElementById('reset-button'); //_9_ variable that holds the node with the id reset-buttton
 
-		resetButton.addEventListener("click", clearGame());
+		resetButton.addEventListener("click",clearGame);
 
 	</script>
 </body>
